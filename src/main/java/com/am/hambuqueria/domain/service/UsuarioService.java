@@ -46,6 +46,21 @@ public class UsuarioService {
         return repository.findByNomeContainsIgnoreCase(nome, pageable);
     }
 
+    // operações de inserção
+    @Transactional
+    public Usuario salva(Usuario usuario) {
+        List<Usuario> emailEmUso = repository.findByEmailContainsIgnoreCase(usuario.getEmail());
+        if (emailEmUso != null)
+            throw new NegocioException("Já existe um usuario cadastrado com este e-mail.");
+        return repository.save(usuario);
+    }
+
+    public Usuario atualiza(Usuario usuario, Long id) {
+        if (repository.findById(id) == null)
+            throw new NegocioException("Não existe nenhum usuario cadastrado com este id.");
+        return salva(usuario);
+    }
+
     // operações de remoção
     @Transactional
     public void removePelo(Long id) {
