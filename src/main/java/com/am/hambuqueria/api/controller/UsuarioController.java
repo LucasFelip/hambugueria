@@ -27,7 +27,7 @@ public class UsuarioController {
     private final UsuarioService service;
 
     // ESSA CLASSE TA ERRADA ( Return erro bad request code 500)
-    @GetMapping
+    @GetMapping("/todos")
     public ResponseEntity<UsuarioResponseDTO> listar() {
         Usuario usuario = (Usuario) service.todos();
         final UsuarioResponseDTO usuarioResponseDTO = mapper.toResponse(usuario);
@@ -35,7 +35,7 @@ public class UsuarioController {
     }
 
     /*
-     * @GetMapping("{id}")
+     * @GetMapping("buscar/{id}")
      * public Optional<UsuarioResponseDTO> listaUsuarioPorId(@RequestParam(value =
      * "id") long id) {
      * List<Usuario> usuario = service.buscaPor(id);

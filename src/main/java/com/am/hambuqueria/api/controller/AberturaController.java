@@ -8,6 +8,6 @@ public class AberturaController {
     @GetMapping
     public String imobiliaria() {
         String url = "https://github.com/LucasFelip";
-        return "BEM VINDO A API DE IMOBILIARIA                    → Desenvolvido por Lucas Felipe " + url;
+        return "BEM VINDO A API DE HAMBURGUERIA                    → Desenvolvido por Lucas Felipe " + url;
     }
 }
