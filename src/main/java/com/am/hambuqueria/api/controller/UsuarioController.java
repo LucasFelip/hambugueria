@@ -28,10 +28,10 @@ public class UsuarioController {
 
     // ESSA CLASSE TA ERRADA ( Return erro bad request code 500)
     @GetMapping("/todos")
-    public ResponseEntity<UsuarioResponseDTO> listar() {
-        Usuario usuario = (Usuario) service.todos();
-        final UsuarioResponseDTO usuarioResponseDTO = mapper.toResponse(usuario);
-        return new ResponseEntity<>(usuarioResponseDTO, HttpStatus.OK);
+    public List<UsuarioResponseDTO> listar() {
+        List<Usuario> usuario = service.todos();
+        List<UsuarioResponseDTO> usuarioResponseDTO = mapper.toResponseList(usuario);
+        return usuarioResponseDTO;
     }
 
     /*
