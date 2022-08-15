@@ -1,7 +1,6 @@
 package com.am.hambuqueria.domain.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,8 +23,9 @@ public class UsuarioService {
         return repository.findAll();
     }
 
-    public Optional<Usuario> buscaPor(Long id) {
-        return repository.findById(id);
+    public Usuario buscaPor(Long id) {
+        Usuario usuario = repository.findById(id).get();
+        return usuario;
     }
 
     public List<Usuario> buscaPorEmail(String email) {

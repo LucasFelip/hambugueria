@@ -1,8 +1,9 @@
 package com.am.hambuqueria.api.controller;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,13 +35,33 @@ public class UsuarioController {
         return usuarioResponseDTO;
     }
 
-    /*
-     * @GetMapping("buscar/{id}")
-     * public Optional<UsuarioResponseDTO> listaUsuarioPorId(@RequestParam(value =
-     * "id") long id) {
-     * List<Usuario> usuario = service.buscaPor(id);
-     * List<UsuarioResponseDTO> usuarioResponse = mapper.toResponseList(usuario);
-     * return usuarioResponse;
-     * }
-     */
+    
+    @GetMapping("buscar/{id}")
+    public ResponseEntity<UsuarioResponseDTO> buscarPorId(@RequestParam(value = "id") long id) {
+        Usuario usuario = service.buscaPor(id);
+        final UsuarioResponseDTO usuarioResponseDTO = mapper.toResponse(usuario);
+        return new ResponseEntity<>(usuarioResponseDTO, HttpStatus.OK);
+    }
+     
+    @GetMapping("buscar/{nome}")
+    public ResponseEntity<List<UsuarioResponseDTO>> buscarPorNome(@RequestParam(value = "nome") String nome){
+        List<Usuario> usuario = service.buscaPorNome(nome);
+        List<UsuarioResponseDTO> usuarioResponseDTO = mapper.toResponseList(usuario);
+        return new ResponseEntity<>(usuarioResponseDTO, HttpStatus.OK);
+    }
+
+    // This function return erro bad request code 500, i need to resolve this
+    @GetMapping("buscar/paginada/{nome}")
+    public ResponseEntity<Page<UsuarioResponseDTO>> buscarPorNomePaginada(@RequestParam(value = "nome") String nome, Pageable paginacao){
+        Page<Usuario> usuarioPaginado = service.buscaPorNome(nome, paginacao);
+        final Page<UsuarioResponseDTO> listUsuarioResponseDTOPaginada = (usuarioPaginado.map(usuario -> mapper.toResponse(usuario)));
+        return new ResponseEntity<>(listUsuarioResponseDTOPaginada, HttpStatus.OK);
+    }
+
+    @GetMapping("buscar/{email}")
+    public ResponseEntity<List<UsuarioResponseDTO>> buscarPorEmail(@RequestParam(value = "email") String email){
+        List<Usuario> usuario = service.buscaPorEmail(email);
+        List<UsuarioResponseDTO> usuarioResponseDTO = mapper.toResponseList(usuario);
+        return new ResponseEntity<>(usuarioResponseDTO, HttpStatus.OK);
+    }
 }

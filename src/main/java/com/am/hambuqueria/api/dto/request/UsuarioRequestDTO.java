@@ -13,5 +13,5 @@ public class UsuarioRequestDTO {
     private String senha;
 
     @NotBlank
-    private String papel;
+    private String nome;
 }
