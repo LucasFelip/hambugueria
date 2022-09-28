@@ -4,7 +4,7 @@ Projeto focando em desenvolvimento de uma api para controle de uma  hamburgueria
 ## Objetivo
 O objeito desse projeto é permitir o gerenciamento de pedidos, entregas de uma hambugueria, integrado a duas interfaces (de cliente e de administrador) podendo exercer funções diferentes dentro do mesmo sistema.
 
-# Como rodar 
+# Como rodar o projeto 
 
 ```bash
 # clonar repositório
@@ -23,4 +23,8 @@ Documentação foi moldada com base no Swagger, para registrar funções da api,
     http://localhost:8081/swagger-ui/index.html
 
 ## Usuario
-Essa entidade e caracterizada por representar o a generalização de cliente e administrador, que são diferenciados pelas funções que execem dentro do sistema, tendo isso em vista, temos as funções abaixo para a entidade usuario:
+Essa entidade é caracterizada por representar a generalização de cliente e administrador, que são diferenciados pelas funções que execem dentro do sistema, tendo isso em vista, temos as funções abaixo para a entidade:
+
+
+## Hamburguer
+Essa entidade é caracterizada por representar a definição de hamburguer, , tendo isso em vista, temos as funções abaixo para a entidade:
