@@ -17,9 +17,7 @@ import javax.validation.constraints.Size;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-/*
-    Classe de modelo de Usuário
-*/
+/*  Classe de modelo de Usuário  */
 public class Usuario {
     @EqualsAndHashCode.Include
     @Id
@@ -37,5 +35,4 @@ public class Usuario {
     @NotBlank
     @Size(min = 6, max = 16)
     private String senha;
-
 }
