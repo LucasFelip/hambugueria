@@ -7,10 +7,10 @@ O objeito desse projeto é permitir o gerenciamento de pedidos, entregas de uma 
 
 ## Documentação 
 ### Backend
-    https://github.com/LucasFelip/hambugueria/tree/LUC-18-reorganizacao-de-estrutura/backend/README.MD
+    https://github.com/LucasFelip/hambugueria/backend/README.MD
 
 ### Frontend
 #### Cliente
-    https://github.com/LucasFelip/hambugueria/blob/LUC-18-reorganizacao-de-estrutura/frontendCliente/README.MD
+    https://github.com/LucasFelip/hambugueria/frontend/cliente/README.MD
 #### Funcionario
-    https://github.com/LucasFelip/hambugueria/blob/LUC-18-reorganizacao-de-estrutura/frontendFunc/README.MD
+    https://github.com/LucasFelip/hambugueria/frontend/func/README.MD
