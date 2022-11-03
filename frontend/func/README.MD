@@ -1,2 +1,0 @@
-# Hambugueria
-Projeto focando em desenvolvimento de uma interface de Funcionario, para acessar uma api, desenvolvida para o gerenciamento de uma hamburgueria, além de adicional de projeto como portifolio.
